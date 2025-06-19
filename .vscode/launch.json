@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-ApiFiescApplication<api-fiesc>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.lucasj.api_fiesc.ApiFiescApplication",
+            "projectName": "api-fiesc",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}

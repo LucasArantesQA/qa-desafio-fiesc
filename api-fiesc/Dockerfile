@@ -1,14 +1,18 @@
-# Usa imagem leve com JDK 17
-FROM openjdk:17-jdk-slim
+FROM maven:3.9.6-eclipse-temurin-17 AS builder
 
-# Define o diretório de trabalho
 WORKDIR /app
 
-# Copia o JAR gerado pelo Maven para dentro do container
-COPY target/api-fiesc-0.0.1-SNAPSHOT.jar app.jar
+COPY . .
 
-# Expõe a porta usada pela aplicação Spring Boot
+RUN mvn clean package -DskipTests
+
+# ---------------------------------------
+FROM eclipse-temurin:17-jdk-alpine
+
+WORKDIR /app
+
+COPY --from=builder /app/target/*.jar app.jar
+
 EXPOSE 8080
 
-# Comando de entrada
 ENTRYPOINT ["java", "-jar", "app.jar"]
