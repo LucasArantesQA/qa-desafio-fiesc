@@ -4,13 +4,21 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "open": "cypress open",
+    "test:all": "cypress run",
+    "test:e2e": "cypress run --spec \"cypress/e2e/**/*.feature\"",
+    "test:api": "cypress run --spec \"cypress/api/**/*.cy.{js,ts}\""
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "type": "commonjs",
   "devDependencies": {
+    "@badeball/cypress-cucumber-preprocessor": "^22.1.0",
+    "@bahmutov/cypress-esbuild-preprocessor": "^2.2.5",
     "cypress": "^14.5.0"
+  },
+  "dependencies": {
+    "tests-e2e": "file:"
   }
 }

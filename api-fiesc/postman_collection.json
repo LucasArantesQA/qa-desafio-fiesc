@@ -1,0 +1,338 @@
+{
+  "info": {
+    "name": "Coffee Order API - FIESC 2025",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_postman_id": "coffee-order-api-fiesc-2025"
+  },
+  "item": [
+    {
+      "name": "Ingredients",
+      "item": [
+        {
+          "name": "List Ingredients",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/admin/ingredients",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "admin",
+                "ingredients"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Create Ingredient",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"name\": \"Espresso\", \"type\": \"BASE\", \"price\": 5.0, \"stockQuantity\": 100, \"active\": true}"
+            },
+            "url": {
+              "raw": "http://localhost:8080/admin/ingredients",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "admin",
+                "ingredients"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Update Ingredient",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"name\": \"Updated Ingredient\", \"type\": \"BASE\", \"price\": 6.0, \"stockQuantity\": 200}"
+            },
+            "url": {
+              "raw": "http://localhost:8080/admin/ingredients/1",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "admin",
+                "ingredients",
+                "1"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Toggle Ingredient Status",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/admin/ingredients/1/status?active=false",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "admin",
+                "ingredients",
+                "1",
+                "status"
+              ],
+              "query": [
+                {
+                  "key": "active",
+                  "value": "false"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Delete Ingredient",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/admin/ingredients/1",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "admin",
+                "ingredients",
+                "1"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Flavors",
+      "item": [
+        {
+          "name": "List Flavors",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/admin/flavors",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "admin",
+                "flavors"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Create Flavor",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/admin/flavors?name=Latte&ingredientIds=1&ingredientIds=2&basePrice=9",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "admin",
+                "flavors"
+              ],
+              "query": [
+                {
+                  "key": "name",
+                  "value": "Latte"
+                },
+                {
+                  "key": "ingredientIds",
+                  "value": "1"
+                },
+                {
+                  "key": "ingredientIds",
+                  "value": "2"
+                },
+                {
+                  "key": "basePrice",
+                  "value": "9"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Update Flavor",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/admin/flavors/1?name=LatteAtualizado&ingredientIds=1&ingredientIds=2&basePrice=10",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "admin",
+                "flavors",
+                "1"
+              ],
+              "query": [
+                {
+                  "key": "name",
+                  "value": "LatteAtualizado"
+                },
+                {
+                  "key": "ingredientIds",
+                  "value": "1"
+                },
+                {
+                  "key": "ingredientIds",
+                  "value": "2"
+                },
+                {
+                  "key": "basePrice",
+                  "value": "10"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Delete Flavor",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/admin/flavors/1",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "admin",
+                "flavors",
+                "1"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Orders",
+      "item": [
+       {
+  "name": "Create Order with Additionals",
+  "request": {
+    "method": "POST",
+    "header": [],
+    "url": {
+      "raw": "http://localhost:8080/orders?baseIds=1&baseIds=2&additionalIds=5&additionalIds=6",
+      "protocol": "http",
+      "host": ["localhost"],
+      "port": "8080",
+      "path": ["orders"],
+      "query": [
+        { "key": "baseIds", "value": "1" },
+        { "key": "baseIds", "value": "2" },
+        { "key": "additionalIds", "value": "5" },
+        { "key": "additionalIds", "value": "6" }
+      ]
+    }
+  }
+},
+        {
+  "name": "Create Order without Additionals",
+  "request": {
+    "method": "POST",
+    "header": [],
+    "url": {
+      "raw": "http://localhost:8080/orders?baseIds=1&baseIds=2",
+      "protocol": "http",
+      "host": ["localhost"],
+      "port": "8080",
+      "path": ["orders"],
+      "query": [
+        { "key": "baseIds", "value": "1" },
+        { "key": "baseIds", "value": "2" }
+      ]
+    }
+  }
+},
+        {
+          "name": "Get Order Summary",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/orders/:orderId",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "orders",
+                ":orderId"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Confirm Order",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/orders/:orderId/confirm",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "orders",
+                ":orderId",
+                "confirm"
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
